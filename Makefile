@@ -12,7 +12,10 @@ list:
 no_targets__:
 
 # install all dependencies (do not forget to create a virtualenv first)
-setup:
+setup: setup-python
+
+# install all python dependencies
+setup-python:
 	@pip install -U -e .\[tests\]
 
 # run your django application
