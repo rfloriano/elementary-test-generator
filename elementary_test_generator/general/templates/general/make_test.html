@@ -1,0 +1,11 @@
+<ol>
+    {% for data in queryset %}
+        <li>{{ data.question }}</li>
+
+        <ol type="a">
+            {% for answer in data.get_answers %}
+                <li>{{ answer.answer }}</li>
+            {% endfor %}
+        </ol>
+    {% endfor %}
+</ol>
