@@ -1,8 +1,12 @@
+from random import shuffle
+
 from django.template.response import TemplateResponse
 from django.utils.translation import ugettext_lazy as _
 
 
 def make_test(modeladmin, request, queryset):
+    queryset = list(queryset)
+    shuffle(queryset)
     context = dict(
         modeladmin.admin_site.each_context(request),
         queryset=queryset,
