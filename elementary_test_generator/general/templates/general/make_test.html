@@ -3,8 +3,8 @@
         <li>{{ data.question }}</li>
 
         <ol type="a">
-            {% for answer in data.get_answers %}
-                <li>{{ answer.answer }}</li>
+            {% for answer in data.get_options %}
+                <li>{{ answer }}</li>
             {% endfor %}
         </ol>
     {% endfor %}
