@@ -7,7 +7,8 @@ class QuestionAdmin(admin.ModelAdmin):
     actions = [actions.make_test]
     list_display = ['question', 'admin_sequence_answers']
     filter_horizontal = ['answers']
-    list_filter = ['template', 'answers']
+    list_filter = ['template']
+    search_fields = ['question', 'answers__answer']
 
 
 class AnswerAdmin(admin.ModelAdmin):
