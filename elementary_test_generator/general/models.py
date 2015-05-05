@@ -48,7 +48,13 @@ class Question(models.Model):
         return map(lambda i: i.answer, list(answers))
 
     def sequence_str_answers(self, answers):
-        return ', '.join(self.sequence_answers(answers))
+        answers = self.sequence_answers(answers)
+        if not answers:
+            return ''
+        elif len(answers) > 1:
+            return _('{0} and {1}').format(
+                     ', '.join(answers[:-1]), answers[-1])
+        return ', '.join(answers)
 
     def admin_sequence_answers(self):
         return self.sequence_str_answers(self.right_answers())
