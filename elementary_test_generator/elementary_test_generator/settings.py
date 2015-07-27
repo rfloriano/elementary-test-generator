@@ -63,7 +63,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'elementary_test_generator.elementary_test_generator.urls'
+ROOT_URLCONF = 'elementary_test_generator.urls'
 
 TEMPLATES = [
     {
@@ -94,7 +94,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] =  dj_database_url.config()
+# DATABASES['default'] = dj_database_url.config()
 
 
 # Internationalization
@@ -116,7 +116,6 @@ USE_TZ = True
 # Static asset configuration
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
-
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

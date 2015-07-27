@@ -31,8 +31,10 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('question_template', models.CharField(max_length=500, verbose_name='Question template')),
                 ('answer_template', models.CharField(max_length=500, verbose_name='Answer template')),
-                ('regex_filter', models.CharField(max_length=200, null=True, verbose_name='Exclude regex', blank=True)),
-                ('query', models.TextField(verbose_name='Sparql query')),
+                ('answer_quantity', models.PositiveIntegerField(verbose_name='Answer quantity')),
+                ('question_property', models.CharField(max_length=500, verbose_name='Question property')),
+                ('answer_property', models.CharField(max_length=300, verbose_name='Answer property')),
+                ('query', models.TextField(null=True, verbose_name='Sparql query', blank=True)),
             ],
         ),
         migrations.AddField(

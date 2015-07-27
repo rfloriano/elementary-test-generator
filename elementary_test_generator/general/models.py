@@ -12,8 +12,11 @@ ANSWERS_NUMBER = 5
 class Template(models.Model):
     question_template = models.CharField(_('Question template'), max_length=500)
     answer_template = models.CharField(_('Answer template'), max_length=500)
+    answer_quantity = models.PositiveIntegerField(_('Answer quantity'))
+    question_property = models.CharField(_('Question property'), max_length=500)
+    answer_property = models.CharField(_('Answer property'), max_length=300)
     regex_filter = models.CharField(_('Exclude regex'), max_length=200, null=True, blank=True)
-    query = models.TextField(_('Sparql query'))
+    query = models.TextField(_('Sparql query'), null=True, blank=True)
 
     def __unicode__(self):
         return self.question_template
