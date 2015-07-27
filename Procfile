@@ -1,0 +1,1 @@
+web: gunicorn elementary_test_generator.elementary_test_generator.wsgi
