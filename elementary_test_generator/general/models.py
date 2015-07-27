@@ -62,11 +62,11 @@ class Question(models.Model):
     def admin_sequence_answers(self):
         return self.sequence_str_answers(self.right_answers())
 
-    def get_options(self, quantity=ANSWERS_NUMBER):
+    def get_options(self):
         right_answers = self.right_answers().order_by('?')
         size = len(right_answers)
         answers = [self.sequence_str_answers(right_answers)]
-        for i in range(quantity - 1):
+        for i in range(self.template.answer_quantity - 1):
             answers += [self.sequence_str_answers(
                 self.wrong_answers().order_by('?')[:size])
             ]
