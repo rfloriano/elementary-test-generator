@@ -1,1 +1,1 @@
-web: gunicorn elementary_test_generator.elementary_test_generator.wsgi
+web: DJANGO_SETTINGS_MODULE=elementary_test_generator.elementary_test_generator.settings_prod gunicorn elementary_test_generator.elementary_test_generator.wsgi
