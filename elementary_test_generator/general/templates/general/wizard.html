@@ -1,0 +1,34 @@
+{% extends 'general/base.html' %}
+{% load staticfiles %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="{% static 'general/css/wizard.css' %}">
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'general/js/wizard.js' %}"/></script>
+{% endblock %}
+
+
+{% block content %}
+    <form method="post" class="wizard">
+        {{ formset.management_form }}
+        {% for form in formset %}
+            <div class="step">
+                <p class="label">{{ form.label_tag }}</p>
+                <p>{{ form }}</p>
+                {% if not forloop.first %}
+                    <a href="#" class="before">before</a>
+                {% endif %}
+
+                {% if not forloop.last %}
+                    <a href="#" class="after">after</a>
+                {% else %}
+                    {% csrf_token %}
+                    <input type="submit" value="send">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </form>
+{% endblock %}

@@ -2,6 +2,7 @@ from random import shuffle
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse
 
 from general import signals
 
@@ -20,6 +21,9 @@ class Template(models.Model):
 
     def __unicode__(self):
         return self.question_template
+
+    def get_absolute_url(self):
+        return reverse('general.views.template', args=[str(self.id)])
 
 
 class Answer(models.Model):

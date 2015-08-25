@@ -1,3 +1,4 @@
+import dj_database_url
 from .settings import *  # NOQA
 
 ROOT_URLCONF = 'elementary_test_generator.elementary_test_generator.urls'

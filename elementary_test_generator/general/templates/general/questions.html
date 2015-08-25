@@ -1,0 +1,20 @@
+{% extends 'general/base.html' %}
+{% load staticfiles %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="{% static 'general/css/template.css' %}">
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'general/js/template.js' %}"/></script>
+{% endblock %}
+
+{% block content %}
+
+    <ul class="questions">
+    {% for question in questions %}
+        <li class="question">{{ question }} R: {% for answer in question.right_answers %}{{ answer }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
